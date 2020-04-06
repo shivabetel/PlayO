@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 public class BookingEntityDTOMapper implements IEntityDTOMapper<Booking, BookingDTO> {
 
     @Override
-    public BookingDTO fromEntity(Booking entity){
+    public BookingDTO fromEntityToDTO(Booking entity){
         BookingDTO bookingDTO = new BookingDTO();
         bookingDTO.setName(entity.getName());
         bookingDTO.setBookingDate(entity.getBookingDate().toString());
@@ -32,7 +32,7 @@ public class BookingEntityDTOMapper implements IEntityDTOMapper<Booking, Booking
     }
 
     @Override
-    public Booking fromDTO(BookingDTO dto) {
+    public Booking fromDTOToEntity(BookingDTO dto) {
         return null;
     }
 

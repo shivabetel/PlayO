@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class SlotEntityDTOMapper implements IEntityDTOMapper<Slot, SlotDTO> {
 
     @Override
-    public SlotDTO fromEntity(Slot entity) {
+    public SlotDTO fromEntityToDTO(Slot entity) {
         SlotDTO slotDTO = new SlotDTO();
         slotDTO.setSlot(entity.getSlot());
         slotDTO.setDescription(entity.getDescription());
@@ -18,7 +18,7 @@ public class SlotEntityDTOMapper implements IEntityDTOMapper<Slot, SlotDTO> {
     }
 
     @Override
-    public Slot fromDTO(SlotDTO dto) {
+    public Slot fromDTOToEntity(SlotDTO dto) {
         Slot slot = new Slot();
         slot.setSlot(dto.getSlot());
         slot.setDescription(dto.getDescription());

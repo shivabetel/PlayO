@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class CourtEntityDTOMapper implements IEntityDTOMapper<Court, CourtDTO> {
 
     @Override
-    public CourtDTO fromEntity(Court entity) {
+    public CourtDTO fromEntityToDTO(Court entity) {
         CourtDTO courtDTO = new CourtDTO();
         courtDTO.setCourtId(entity.getCourtId());
         courtDTO.setCourtName(entity.getName());
@@ -17,7 +17,7 @@ public class CourtEntityDTOMapper implements IEntityDTOMapper<Court, CourtDTO> {
     }
 
     @Override
-    public Court fromDTO(CourtDTO dto) {
+    public Court fromDTOToEntity(CourtDTO dto) {
         Court court = new Court();
         court.setName(dto.getCourtName());
         return court;

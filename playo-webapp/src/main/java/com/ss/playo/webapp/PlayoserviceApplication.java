@@ -1,4 +1,4 @@
-package com.ss.playo.webapp.run;
+package com.ss.playo.webapp;
 
 import com.ss.playo.common.web.RestResponseEntityExceptionHandler;
 import org.springframework.boot.SpringApplication;

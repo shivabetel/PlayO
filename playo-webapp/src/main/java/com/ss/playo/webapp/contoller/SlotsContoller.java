@@ -46,7 +46,7 @@ public class SlotsContoller extends AbstractController<SlotDTO> {
     public List<SlotDTO> query(@PathVariable(name = "bookingDate") String bookingDate, @PathVariable(name = "courtNo") String courtNo) throws ParseException {
         Date date = new SimpleDateFormat("yyyy-MM-dd").parse(bookingDate);
         List<Slot> slotList = service.querySlotsByDateByCourt(date, courtNo);
-       return slotList.stream().map(slotEntityDTOMapper::fromEntity).collect(Collectors.toList());
+       return slotList.stream().map(slotEntityDTOMapper::fromEntityToDTO).collect(Collectors.toList());
 
     }
 
@@ -57,10 +57,10 @@ public class SlotsContoller extends AbstractController<SlotDTO> {
 
     }
 
-    @GetMapping
+    @GetMapping("/dto")
     public List<SlotDTO> retrieveAllSlots(){
         List<Slot> slotList = service.findAll();
-        return slotList.stream().map(slotEntityDTOMapper::fromEntity).collect(Collectors.toList());
+        return slotList.stream().map(slotEntityDTOMapper::fromEntityToDTO).collect(Collectors.toList());
     }
 
     @Override

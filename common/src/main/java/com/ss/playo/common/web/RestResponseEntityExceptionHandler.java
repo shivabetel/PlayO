@@ -10,7 +10,6 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
@@ -59,8 +58,9 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
         return handleExceptionInternal(ex, errorDTO, new HttpHeaders(), HttpStatus.NOT_FOUND, request);
     }
 
-    @ExceptionHandler(value = {Exception.class})
+    @ExceptionHandler(value = {Exception.class, RuntimeException.class})
     public ResponseEntity<Object> handleBadRequest(Exception ex, WebRequest request){
+        new RuntimeException().printStackTrace();
         ErrorDTO errorDTO = new ErrorDTO();
         errorDTO.setResponseCode(String.valueOf(HttpStatus.BAD_REQUEST.value()));
         errorDTO.setResponseMessage(ex.getMessage());

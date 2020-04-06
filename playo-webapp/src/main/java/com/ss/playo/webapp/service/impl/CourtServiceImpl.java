@@ -32,7 +32,7 @@ public class CourtServiceImpl extends AbstractService<Court, Long> implements IC
     @Override
     public List<CourtDTO> queryCourtsByDateBySlot(Date bookingDate, String slot) {
         List<Court> courtList = dao.queryCourtsByDateBySlot(bookingDate,Integer.parseInt(slot));
-       return   courtList.stream().map(courtEntityDTOMapper::fromEntity).collect(Collectors.toList());
+       return   courtList.stream().map(courtEntityDTOMapper::fromEntityToDTO).collect(Collectors.toList());
 
     }
 

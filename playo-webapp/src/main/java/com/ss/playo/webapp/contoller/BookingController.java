@@ -51,13 +51,13 @@ public class BookingController extends AbstractController<BookingDTO> {
     @GetMapping
     public List<BookingDTO> findAll(){
         List<Booking> bookingList =  this.service.findAll();
-        return bookingList.stream().map(bookingEntityDTOMapper::fromEntity).collect(Collectors.toList());
+        return bookingList.stream().map(bookingEntityDTOMapper::fromEntityToDTO).collect(Collectors.toList());
     }
 
 
     @GetMapping("/{id}")
     public BookingDTO findOne(@PathVariable(name = "id") String id){
-        return this.service.findById(new Long(id)).map(bookingEntityDTOMapper::fromEntity).orElseThrow(() -> new ResourceNotFoundException("Booking details not found"));
+        return this.service.findById(new Long(id)).map(bookingEntityDTOMapper::fromEntityToDTO).orElseThrow(() -> new ResourceNotFoundException("Booking details not found"));
 
     }
 
