@@ -1,4 +1,4 @@
-package com.ss.playo.webapp.dtos;
+package com.ss.playo.webapp.web.dtos;
 
 import com.ss.playo.common.annotation.ValidEmail;
 import com.ss.playo.common.dto.PasswordDTO;

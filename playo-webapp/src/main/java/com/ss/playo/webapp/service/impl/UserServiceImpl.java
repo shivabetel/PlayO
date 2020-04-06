@@ -4,7 +4,7 @@ import com.ss.playo.common.interfaces.IEntityDTOMapper;
 import com.ss.playo.common.interfaces.dao.IJPADAO;
 import com.ss.playo.common.service.AbstractService;
 import com.ss.playo.common.web.exception.UserAlreadyExistsException;
-import com.ss.playo.webapp.dtos.UserDTO;
+import com.ss.playo.webapp.web.dtos.UserDTO;
 import com.ss.playo.webapp.persistence.dao.IUserJPADAO;
 import com.ss.playo.webapp.persistence.dao.model.User;
 import com.ss.playo.webapp.persistence.dao.model.VerificationToken;

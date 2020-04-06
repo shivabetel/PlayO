@@ -1,10 +1,9 @@
-package com.ss.playo.webapp.contoller;
+package com.ss.playo.webapp.web.contoller;
 
-import com.ss.playo.common.controller.AbstractController;
-import com.ss.playo.common.interfaces.IEntity;
+import com.ss.playo.common.web.controller.AbstractController;
 import com.ss.playo.common.interfaces.IEntityDTOMapper;
 import com.ss.playo.common.service.IService;
-import com.ss.playo.webapp.dtos.CourtDTO;
+import com.ss.playo.webapp.web.dtos.CourtDTO;
 import com.ss.playo.webapp.persistence.dao.model.Court;
 import com.ss.playo.webapp.service.ICourtsService;
 import org.springframework.beans.factory.annotation.Autowired;

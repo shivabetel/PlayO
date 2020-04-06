@@ -1,9 +1,9 @@
-package com.ss.playo.webapp.contoller;
+package com.ss.playo.webapp.web.contoller;
 
 
 import com.ss.playo.common.web.exception.UserAlreadyExistsException;
-import com.ss.playo.webapp.dtos.UserDTO;
-import com.ss.playo.webapp.events.OnRegistrationCompleteEvent;
+import com.ss.playo.webapp.web.dtos.UserDTO;
+import com.ss.playo.webapp.web.events.OnRegistrationCompleteEvent;
 import com.ss.playo.webapp.persistence.dao.model.User;
 import com.ss.playo.webapp.service.IUserService;
 import com.ss.playo.webapp.service.IVerificationTokenService;

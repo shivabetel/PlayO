@@ -1,7 +1,7 @@
 package com.ss.playo.webapp.service.impl;
 
 import com.ss.playo.common.service.AbstractService;
-import com.ss.playo.webapp.dtos.SlotDTO;
+import com.ss.playo.webapp.web.dtos.SlotDTO;
 import com.ss.playo.webapp.persistence.dao.ISlotJPADAO;
 import com.ss.playo.webapp.persistence.dao.model.Slot;
 import com.ss.playo.webapp.service.ISlotService;

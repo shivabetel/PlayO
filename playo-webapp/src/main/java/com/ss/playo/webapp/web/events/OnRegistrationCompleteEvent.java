@@ -1,4 +1,4 @@
-package com.ss.playo.webapp.events;
+package com.ss.playo.webapp.web.events;
 
 import com.ss.playo.webapp.persistence.dao.model.User;
 import org.springframework.context.ApplicationEvent;

@@ -1,7 +1,7 @@
-package com.ss.playo.webapp.mappers;
+package com.ss.playo.webapp.web.mappers;
 
 import com.ss.playo.common.interfaces.IEntityDTOMapper;
-import com.ss.playo.webapp.dtos.BookingDTO;
+import com.ss.playo.webapp.web.dtos.BookingDTO;
 import com.ss.playo.webapp.persistence.dao.model.Booking;
 import com.ss.playo.webapp.persistence.dao.model.BookingDetails;
 import com.ss.playo.webapp.persistence.dao.model.Court;

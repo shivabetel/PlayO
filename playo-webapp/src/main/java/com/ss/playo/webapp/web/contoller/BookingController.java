@@ -1,12 +1,12 @@
-package com.ss.playo.webapp.contoller;
+package com.ss.playo.webapp.web.contoller;
 
 
-import com.ss.playo.common.controller.AbstractController;
+import com.ss.playo.common.web.controller.AbstractController;
 import com.ss.playo.common.interfaces.IEntityDTOMapper;
 import com.ss.playo.common.service.IService;
 import com.ss.playo.common.web.exception.ResourceNotFoundException;
-import com.ss.playo.webapp.dtos.BookingDTO;
-import com.ss.playo.webapp.mappers.BookingEntityDTOMapper;
+import com.ss.playo.webapp.web.dtos.BookingDTO;
+import com.ss.playo.webapp.web.mappers.BookingEntityDTOMapper;
 import com.ss.playo.webapp.persistence.dao.model.Booking;
 import com.ss.playo.webapp.service.IBookingService;
 import com.ss.playo.webapp.service.ICourtsService;

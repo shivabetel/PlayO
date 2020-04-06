@@ -1,6 +1,6 @@
-package com.ss.playo.webapp.listener;
+package com.ss.playo.webapp.web.listener;
 
-import com.ss.playo.webapp.events.OnRegistrationCompleteEvent;
+import com.ss.playo.webapp.web.events.OnRegistrationCompleteEvent;
 import com.ss.playo.webapp.persistence.dao.model.User;
 import com.ss.playo.webapp.service.IVerificationTokenService;
 import org.springframework.beans.factory.annotation.Autowired;

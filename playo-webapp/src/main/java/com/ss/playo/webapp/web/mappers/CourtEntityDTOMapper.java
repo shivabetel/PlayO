@@ -1,7 +1,7 @@
-package com.ss.playo.webapp.mappers;
+package com.ss.playo.webapp.web.mappers;
 
 import com.ss.playo.common.interfaces.IEntityDTOMapper;
-import com.ss.playo.webapp.dtos.CourtDTO;
+import com.ss.playo.webapp.web.dtos.CourtDTO;
 import com.ss.playo.webapp.persistence.dao.model.Court;
 import org.springframework.stereotype.Component;
 
