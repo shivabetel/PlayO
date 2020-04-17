@@ -21,6 +21,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<start-class>com.ss.playo.webapp.run.PlayoserviceApplication</start-class>
 	</properties>
 
 	<dependencies>
@@ -71,6 +72,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>com.ss.playo.webapp.run.PlayoserviceApplication</mainClass>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
