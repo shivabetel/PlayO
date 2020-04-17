@@ -31,6 +31,7 @@ public class BookingServiceImpl extends AbstractService<Booking, Long> implement
 
     @Override
     public Iterable saveAll(Iterable entities) {
-        return getDAO().saveAll(entities);
+        //return getDAO().saveAll(entities);
+        return null;
     }
 }

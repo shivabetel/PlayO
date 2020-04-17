@@ -8,6 +8,7 @@ import com.ss.playo.webapp.persistence.dao.model.Court;
 import com.ss.playo.webapp.persistence.dao.model.Slot;
 import com.ss.playo.webapp.service.ICourtsService;
 import com.ss.playo.webapp.service.ISlotService;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
 
 import java.text.ParseException;
@@ -19,7 +20,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
-public class BookingEntityDTOMapper implements IEntityDTOMapper<Booking, BookingDTO> {
+public class BookingEntityDTOMapper implements IEntityDTOMapper<Booking, BookingDTO>, InitializingBean {
 
     @Override
     public BookingDTO fromEntityToDTO(Booking entity){
@@ -56,5 +57,10 @@ public class BookingEntityDTOMapper implements IEntityDTOMapper<Booking, Booking
         entityList.add(bookingEntity);
 
         return entityList;
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("calling after set properties for BookingEntityMapper");
     }
 }

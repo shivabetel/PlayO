@@ -8,6 +8,7 @@ import com.ss.playo.webapp.persistence.dao.model.User;
 import com.ss.playo.webapp.service.IUserService;
 import com.ss.playo.webapp.service.IVerificationTokenService;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,8 +38,10 @@ public class UserController {
 
     private ApplicationEventPublisher publisher;
 
-    @PostMapping("/registration")
-    public void register(@RequestBody @Valid  UserDTO userDTO, BindingResult result) throws UserAlreadyExistsException {
+    @PostMapping()
+    @CrossOrigin()
+    @ResponseStatus(code = HttpStatus.CREATED)
+    public String register(@RequestBody @Valid  UserDTO userDTO, BindingResult result) throws UserAlreadyExistsException {
         System.out.println("userservice:::"+userService);
 
         if(result.hasErrors()) {
@@ -52,8 +55,16 @@ public class UserController {
             publisher.publishEvent(new OnRegistrationCompleteEvent(user, Locale.ENGLISH, ""));
         }
 
+        return "{\"responseCode\": 201, \"responseMessage\": \" user created successfully\"}";
 
 
+
+    }
+
+    @GetMapping("/checkAvailability")
+    @CrossOrigin()
+    public String validateUser(@RequestParam(name = "emailId") String emailId) {
+      return userService.findByEmailId(emailId) ? "{\"available\": true }" : "{\"available\": false }";
     }
 
     @GetMapping("/registrationConfirmation")

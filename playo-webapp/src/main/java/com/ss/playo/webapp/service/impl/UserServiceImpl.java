@@ -66,6 +66,11 @@ public class UserServiceImpl extends AbstractService<User, String> implements IU
     }
 
     @Override
+    public Boolean findByEmailId(String emailId) {
+        return userJPADAO.findById(emailId).isPresent() ? false : true;
+    }
+
+    @Override
     protected IJPADAO<User, String> getDAO() {
         return userJPADAO;
     }
