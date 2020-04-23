@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "COURTS_MASTER", uniqueConstraints = {@UniqueConstraint(name = "unique_courtno", columnNames = {"COURT_NAME"})})
-public class Court implements IEntity {
+public class Court implements IEntity<Long> {
 
     @Column(name = "COURT_ID")
     @Id
@@ -29,5 +29,10 @@ public class Court implements IEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public Long getId() {
+        return courtId;
     }
 }

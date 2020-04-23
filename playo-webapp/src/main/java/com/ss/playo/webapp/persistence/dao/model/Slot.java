@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "SLOTS_MASTER", uniqueConstraints = {@UniqueConstraint(name = "unique_slot", columnNames = {"slot"} )})
-public class Slot implements IEntity {
+public class Slot implements IEntity<Integer> {
 
 
     @Column(name="SLOT", nullable = false)
@@ -16,6 +16,13 @@ public class Slot implements IEntity {
     @Column(name = "SLOT_DESCRIPTION", nullable = false)
     private String description;
 
+    public Slot(Integer slot, String description) {
+        this.slot = slot;
+        this.description = description;
+    }
+
+    public Slot() {
+    }
 
     public Integer getSlot() {
         return slot;
@@ -31,5 +38,10 @@ public class Slot implements IEntity {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public Integer getId() {
+        return slot;
     }
 }

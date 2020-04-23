@@ -17,6 +17,14 @@ public class PasswordDTO implements IDto {
     @NotEmpty(message = "Confirm Password cannot be empty")
     private String confirmPassword;
 
+    public PasswordDTO(@NotNull(message = "Password cannot be empty") @NotEmpty(message = "Password cannot be empty") String password, @NotNull(message = "Confirm Password cannot be empty") @NotEmpty(message = "Confirm Password cannot be empty") String confirmPassword) {
+        this.password = password;
+        this.confirmPassword = confirmPassword;
+    }
+
+    public PasswordDTO() {
+    }
+
     public String getPassword() {
         return password;
     }

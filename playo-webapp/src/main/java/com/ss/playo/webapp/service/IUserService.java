@@ -14,6 +14,10 @@ public interface IUserService extends IService<User, String> {
 
     void verifyRegistration(String token) throws ValidationException;
 
-    Boolean findByEmailId(String emailId);
+    Optional<User> findByEmailId(String emailId);
+
+    Optional<User> findByEmailId_Enabled(String emailId);
+
+
 
 }

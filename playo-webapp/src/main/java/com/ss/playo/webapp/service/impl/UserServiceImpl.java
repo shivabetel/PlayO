@@ -20,19 +20,25 @@ import java.util.Optional;
 @Service
 public class UserServiceImpl extends AbstractService<User, String> implements IUserService {
 
-    @Autowired
+
     IUserJPADAO userJPADAO;
 
-    @Autowired
+
     IEntityDTOMapper<User, UserDTO> dtoMapper;
 
-    @Autowired
+
     IVerificationTokenService verificationTokenService;
 
+    public UserServiceImpl(IUserJPADAO userJPADAO, IEntityDTOMapper<User, UserDTO> dtoMapper, IVerificationTokenService verificationTokenService) {
+        this.userJPADAO = userJPADAO;
+        this.dtoMapper = dtoMapper;
+        this.verificationTokenService = verificationTokenService;
+    }
+
     @Override
-    public User register(UserDTO userDTO) throws UserAlreadyExistsException {
+    public User register(UserDTO userDTO) {
         if(userDTO != null){
-           Optional<User> user = userJPADAO.findByEmailId(userDTO.getEmailId());
+           Optional<User> user = getDAO().findByEmailId(userDTO.getEmailId());
            if(user.isPresent()){
                throw new UserAlreadyExistsException("There is an account already exists with the email adress: " + userDTO.getEmailId());
            }
@@ -66,12 +72,17 @@ public class UserServiceImpl extends AbstractService<User, String> implements IU
     }
 
     @Override
-    public Boolean findByEmailId(String emailId) {
-        return userJPADAO.findById(emailId).isPresent() ? false : true;
+    public Optional<User> findByEmailId_Enabled(String emailId) {
+        return getDAO().findByEmailId_Enabled(emailId);
     }
 
     @Override
-    protected IJPADAO<User, String> getDAO() {
+    public Optional<User> findByEmailId(String emailId) {
+        return getDAO().findById(emailId);
+    }
+
+    @Override
+    protected IUserJPADAO getDAO() {
         return userJPADAO;
     }
 }

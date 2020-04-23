@@ -19,9 +19,7 @@ public class SlotEntityDTOMapper implements IEntityDTOMapper<Slot, SlotDTO> {
 
     @Override
     public Slot fromDTOToEntity(SlotDTO dto) {
-        Slot slot = new Slot();
-        slot.setSlot(dto.getSlot());
-        slot.setDescription(dto.getDescription());
+        Slot slot = new Slot(dto.getSlot(), dto.getDescription());
         return slot;
     }
 }

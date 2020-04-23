@@ -3,14 +3,12 @@ package com.ss.playo.webapp.persistence.dao.model;
 
 import com.ss.playo.common.interfaces.IEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "USERS")
-public class User implements IEntity {
+public class User implements IEntity<String> {
 
     @Id
     @Column(name = "EMAIL_ID", nullable = false)
@@ -26,6 +24,12 @@ public class User implements IEntity {
 
    @Column(name = "enabled")
    private boolean enabled;
+
+   @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+   @JoinTable(name = "USER_ROLES",
+   joinColumns = {@JoinColumn(name = "USER_ID", referencedColumnName = "EMAIL_ID")},
+   inverseJoinColumns = {@JoinColumn(name = "ROLE_ID", referencedColumnName = "ROLE_ID")})
+   private Set<Role> roleSet;
 
 
     public User() {
@@ -71,5 +75,18 @@ public class User implements IEntity {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Set<Role> getRoleSet() {
+        return roleSet;
+    }
+
+    public void setRoleSet(Set<Role> roleSet) {
+        this.roleSet = roleSet;
+    }
+
+    @Override
+    public String getId() {
+        return emailId;
     }
 }

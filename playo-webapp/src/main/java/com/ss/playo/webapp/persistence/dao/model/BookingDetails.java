@@ -1,10 +1,12 @@
 package com.ss.playo.webapp.persistence.dao.model;
 
+import com.ss.playo.common.interfaces.IEntity;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "COURT_BOOKING_DETAILS")
-public class BookingDetails {
+public class BookingDetails implements IEntity<Long> {
 
     @Column(name = "BOOKING_DETAILS_ID")
     @Id

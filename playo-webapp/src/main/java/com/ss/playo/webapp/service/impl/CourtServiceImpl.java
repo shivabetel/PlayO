@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -31,15 +32,13 @@ public class CourtServiceImpl extends AbstractService<Court, Long> implements IC
 
     @Override
     public List<CourtDTO> queryCourtsByDateBySlot(Date bookingDate, String slot) {
-        List<Court> courtList = dao.queryCourtsByDateBySlot(bookingDate,Integer.parseInt(slot));
+        List<Court> courtList = getDAO().queryCourtsByDateBySlot(bookingDate,Integer.parseInt(slot));
        return   courtList.stream().map(courtEntityDTOMapper::fromEntityToDTO).collect(Collectors.toList());
 
     }
 
-//    @Override
-//    protected IEntity convertDtoToEntity(CourtDTO courtDTO) throws Exception {
-//        Court courtEntity = new Court();
-//        courtEntity.setName(courtDTO.getCourtName());
-//        return courtEntity;
-//    }
+    @Override
+    public Optional<Court> findByCourtName(String name) {
+        return getDAO().findByName(name);
+    }
 }

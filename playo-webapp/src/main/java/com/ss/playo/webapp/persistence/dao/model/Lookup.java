@@ -14,7 +14,7 @@ import java.util.Date;
 
 @Entity
 @NamedQuery(name = "Lookup.details", query = "select lookupDetails from Lookup lookupDetails")
-public class Lookup implements IEntity {
+public class Lookup implements IEntity<String> {
 
 
     @Id
@@ -84,5 +84,10 @@ public class Lookup implements IEntity {
 
     public void setLastUpdatedBy(String lastUpdatedBy) {
         this.lastUpdatedBy = lastUpdatedBy;
+    }
+
+    @Override
+    public String getId() {
+        return key;
     }
 }

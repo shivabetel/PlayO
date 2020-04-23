@@ -10,7 +10,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "COURT_BOOKING")
-public class Booking implements IEntity {
+public class Booking implements IEntity<Long> {
 
     @Column(name = "BOOKING_ID")
     @Id

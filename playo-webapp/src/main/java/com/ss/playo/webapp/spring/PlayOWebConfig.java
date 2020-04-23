@@ -124,6 +124,9 @@ public class PlayOWebConfig implements WebMvcConfigurer {
         mailSender.setHost("smtp.gmail.com");
         mailSender.setPort(587);
 
+        //lookupConfigurationProperties.getLookupValue("SSORG_EMAIL_ID")
+        //lookupConfigurationProperties.getLookupValue("SSORG_EMAIL_PASSWORD")
+
         mailSender.setUsername(lookupConfigurationProperties.getLookupValue("SSORG_EMAIL_ID"));
         mailSender.setPassword(lookupConfigurationProperties.getLookupValue("SSORG_EMAIL_PASSWORD"));
 

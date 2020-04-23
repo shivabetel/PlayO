@@ -7,8 +7,10 @@ import com.ss.playo.webapp.web.events.OnRegistrationCompleteEvent;
 import com.ss.playo.webapp.persistence.dao.model.User;
 import com.ss.playo.webapp.service.IUserService;
 import com.ss.playo.webapp.service.IVerificationTokenService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,10 +26,15 @@ public class UserController {
 
     IUserService userService;
 
-    public UserController(IUserService userService, IVerificationTokenService verificationTokenService, ApplicationEventPublisher publisher) {
+    PasswordEncoder passwordEncoder;
+
+
+    public UserController(IUserService userService, IVerificationTokenService verificationTokenService, ApplicationEventPublisher publisher,
+                         PasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.verificationTokenService = verificationTokenService;
         this.publisher = publisher;
+        this.passwordEncoder = passwordEncoder;
 
         new RuntimeException().printStackTrace();
     }
@@ -41,7 +48,7 @@ public class UserController {
     @PostMapping()
     @CrossOrigin()
     @ResponseStatus(code = HttpStatus.CREATED)
-    public String register(@RequestBody @Valid  UserDTO userDTO, BindingResult result) throws UserAlreadyExistsException {
+    public String register(@RequestBody @Valid  UserDTO userDTO, BindingResult result) {
         System.out.println("userservice:::"+userService);
 
         if(result.hasErrors()) {
@@ -49,7 +56,7 @@ public class UserController {
             result.getAllErrors().stream().forEach(objectError -> stringBuilder.append(objectError.getDefaultMessage() + ","));
             throw new ValidationException(stringBuilder.toString());
         }
-
+       userDTO.setPassword(passwordEncoder.encode(userDTO.getPassword()));
         User user = userService.register(userDTO);
         if(user != null){
             publisher.publishEvent(new OnRegistrationCompleteEvent(user, Locale.ENGLISH, ""));
@@ -64,7 +71,7 @@ public class UserController {
     @GetMapping("/checkAvailability")
     @CrossOrigin()
     public String validateUser(@RequestParam(name = "emailId") String emailId) {
-      return userService.findByEmailId(emailId) ? "{\"available\": true }" : "{\"available\": false }";
+      return userService.findByEmailId(emailId).isPresent() ? "{\"available\": false }" : "{\"available\": true }";
     }
 
     @GetMapping("/registrationConfirmation")

@@ -43,7 +43,7 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
         if(ex.getCause() instanceof ConstraintViolationException){
             ConstraintViolationException constraintViolationException = (ConstraintViolationException)ex.getCause();
             Optional constraintName = Optional.of(constraintViolationException.getConstraintName());
-            errorDTO.setResponseMessage(sqlConstraints.get(constraintName.orElse("default")));
+            errorDTO.setResponseMessage(sqlConstraints.get(constraintName.orElseGet(() -> "default")));
         }else{
             errorDTO.setResponseMessage(sqlConstraints.get("default"));
         }

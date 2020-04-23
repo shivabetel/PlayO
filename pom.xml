@@ -6,6 +6,7 @@
     <modules>
         <module>common</module>
 		<module>playo-webapp</module>
+        <module>common-test</module>
     </modules>
     <parent>
 		<groupId>org.springframework.boot</groupId>
@@ -64,7 +65,11 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.19</version>
 		</dependency>
-
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 

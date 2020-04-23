@@ -25,7 +25,8 @@ public abstract class AbstractService<T extends IEntity, E extends Serializable>
 
     @Override
     public T save(T entity) {
-        return getDAO().save(entity);
+        T returnedEntity = getDAO().save(entity);
+        return returnedEntity;
     }
 
     @Override

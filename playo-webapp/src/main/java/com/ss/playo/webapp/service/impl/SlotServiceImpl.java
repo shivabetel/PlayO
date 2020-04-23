@@ -14,7 +14,6 @@ import java.util.List;
 @Service
 public class SlotServiceImpl extends AbstractService<Slot, Integer> implements ISlotService {
 
-    @Autowired
     private ISlotJPADAO dao;
 
     @Override
@@ -22,15 +21,19 @@ public class SlotServiceImpl extends AbstractService<Slot, Integer> implements I
         return dao;
     }
 
+    public SlotServiceImpl(ISlotJPADAO dao) {
+        this.dao = dao;
+    }
+
     @Override
     public List<Slot> querySlotsByDateByCourt(Date date, String courtNo) {
 
-        return dao.querySlotsByDateByCourt(date, courtNo);
+        return getDAO().querySlotsByDateByCourt(date, courtNo);
     }
 
     @Override
     public List<SlotDTO> querySlotsByDateByCourtDTO(Date date, String courtNo) {
-        return dao.querySlotsByDateByCourtDTO(date, courtNo);
+        return getDAO().querySlotsByDateByCourtDTO(date, courtNo);
     }
 
 }

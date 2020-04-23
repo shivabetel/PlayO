@@ -3,9 +3,6 @@ package com.ss.playo.webapp;
 import com.ss.playo.common.web.RestResponseEntityExceptionHandler;
 import com.ss.playo.webapp.service.IUserService;
 import com.ss.playo.webapp.service.impl.UserServiceImpl;
-import com.ss.playo.webapp.web.contoller.BookingController;
-import com.ss.playo.webapp.web.contoller.UserController;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -13,12 +10,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
-import org.springframework.web.WebApplicationInitializer;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRegistration;
-import java.lang.reflect.Method;
 import java.util.Properties;
 
 @SpringBootApplication
@@ -27,7 +19,6 @@ import java.util.Properties;
 
 public class PlayoserviceApplication {
 
-	private  static IUserService userService = new UserServiceImpl();
 
 	public static void main(String[] args) {
 
