@@ -15,7 +15,8 @@ public class CORSFilter implements Filter {
         response.setHeader("Access-Control-Allow-Headers", "Authorization, Origin, Content-Type");
         response.setHeader("Access-Control-Expose-Headers", "Authorization, Origin, Content-Type");
         final HttpServletRequest request = (HttpServletRequest)servletRequest;
-        if(request.getMethod() != "options"){
+        System.out.println("request.getMethod()"+request.getMethod());
+        if(!request.getMethod().equals( "OPTIONS")){
             filterChain.doFilter(servletRequest, servletResponse);
         }
     }

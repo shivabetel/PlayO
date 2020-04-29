@@ -2,6 +2,7 @@ package com.ss.playo.webapp.spring;
 
 import com.ss.playo.common.web.RestResponseEntityExceptionHandler;
 import com.ss.playo.webapp.web.config.LookupConfigurationProperties;
+import com.ss.playo.webapp.web.filter.CORSFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -72,6 +73,7 @@ public class PlayOWebConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**");
 
     }
 
@@ -147,6 +149,7 @@ public class PlayOWebConfig implements WebMvcConfigurer {
         eventMulticaster.setTaskExecutor(new SimpleAsyncTaskExecutor());
         return eventMulticaster;
     }
+
 
     @Override
     public Validator getValidator() {

@@ -2,6 +2,7 @@ package com.ss.playo.webapp.persistence.dao.model;
 
 
 import com.ss.playo.common.interfaces.IEntity;
+import org.hibernate.type.VersionType;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -31,6 +32,16 @@ public class User implements IEntity<String> {
    inverseJoinColumns = {@JoinColumn(name = "ROLE_ID", referencedColumnName = "ROLE_ID")})
    private Set<Role> roleSet;
 
+   @Version
+   private Long version;
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
+    }
 
     public User() {
         super();
@@ -89,4 +100,6 @@ public class User implements IEntity<String> {
     public String getId() {
         return emailId;
     }
+
+
 }

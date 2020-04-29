@@ -1,5 +1,7 @@
 package com.ss.playo.webapp.web.contoller;
 
+import com.ss.playo.common.interfaces.IDto;
+import com.ss.playo.common.interfaces.IEntity;
 import com.ss.playo.common.web.controller.AbstractController;
 import com.ss.playo.common.interfaces.IEntityDTOMapper;
 import com.ss.playo.common.service.IService;
@@ -14,6 +16,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 
@@ -56,7 +59,7 @@ public class SlotsContoller extends AbstractController<SlotDTO> {
 
     }
 
-    @GetMapping("/dto")
+    @GetMapping
     public List<SlotDTO> retrieveAllSlots(){
         List<Slot> slotList = service.findAll();
         return slotList.stream().map(slotEntityDTOMapper::fromEntityToDTO).collect(Collectors.toList());
