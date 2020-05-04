@@ -35,8 +35,6 @@ public class UserController {
         this.verificationTokenService = verificationTokenService;
         this.publisher = publisher;
         this.passwordEncoder = passwordEncoder;
-
-        new RuntimeException().printStackTrace();
     }
 
 

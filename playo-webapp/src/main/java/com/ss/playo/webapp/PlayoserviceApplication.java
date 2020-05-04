@@ -14,7 +14,7 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 import java.util.Properties;
 
 @SpringBootApplication
-@PropertySource("classpath:mysql-properties.properties")
+@PropertySource("classpath:mysql-properties-dev.properties")
 @Import({RestResponseEntityExceptionHandler.class})
 
 public class PlayoserviceApplication {

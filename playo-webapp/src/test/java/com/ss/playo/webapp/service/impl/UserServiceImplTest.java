@@ -14,6 +14,7 @@ import com.ss.playo.webapp.web.mappers.UserEntityDTOMapper;
 import com.ss.test.common.service.AbstractServiceUnitTest;
 import javafx.beans.binding.When;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,16 +66,17 @@ class UserServiceImplTest extends AbstractServiceUnitTest<User, String> {
     }
 
 
-    @Test
-    void findByEmailId(){
-        //given
-        String emailId = "shiva.betel@gmail.com";
-        when(getDAO().findByEmailId(emailId)).thenReturn(Optional.of(new User()));
-
-        //when and then
-        assertNotNull(instance.findByEmailId(emailId).orElseGet(() -> null));
-
-    }
+//    @Test
+//    @Disabled
+//    void findByEmailId(){
+//        //given
+//        String emailId = "shiva.betel@gmail.com";
+//        when(getDAO().findByEmailId(emailId)).thenReturn(Optional.of(new User()));
+//
+//        //when and then
+//        assertNotNull(instance.findByEmailId(emailId).orElseGet(() -> null));
+//
+//    }
     @Override
     public IService<User, String> getApi() {
         return instance;

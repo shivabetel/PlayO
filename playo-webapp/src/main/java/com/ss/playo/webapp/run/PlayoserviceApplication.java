@@ -10,6 +10,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 @SpringBootApplication
 public class PlayoserviceApplication {
 
+
 	private final static Class[] CONFIGS = {
 			PlayoserviceApplication.class,
 			PlayOWebConfig.class,

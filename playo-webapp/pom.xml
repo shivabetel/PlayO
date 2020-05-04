@@ -45,6 +45,12 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <profiles>
+                        <profile>prod</profile>
+                    </profiles>
+                    <systemPropertyVariables>
+                        <persistenceTarget>dev</persistenceTarget>
+                    </systemPropertyVariables>
                     <mainClass>com.ss.playo.webapp.run.PlayoserviceApplication</mainClass>
                 </configuration>
             </plugin>

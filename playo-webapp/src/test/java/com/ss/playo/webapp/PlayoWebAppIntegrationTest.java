@@ -23,56 +23,56 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@SpringBootTest
+//@SpringBootTest
 public class PlayoWebAppIntegrationTest {
 
-    private MockMvc mockMvc;
+//    private MockMvc mockMvc;
+//
+//    @MockBean
+//    private IUserService userService;
+//
+//    @Autowired
+//    private IEntityDTOMapper<User, UserDTO> userDTOIEntityDTOMapper;
+//
+//
+//
+//    @Autowired
+//    private WebApplicationContext wac;
 
-    @MockBean
-    private IUserService userService;
-
-    @Autowired
-    private IEntityDTOMapper<User, UserDTO> userDTOIEntityDTOMapper;
-
-
-
-    @Autowired
-    private WebApplicationContext wac;
-
-    @BeforeEach
-    void setUp() {
-         this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
-    }
-
-    @Test
-    @Disabled
-    public void testUserIdAvailablity() throws Exception{
-        mockMvc.perform(get("/api/user/checkAvailability?emailId=shiva.betel@gmail.com"))
-                .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.available").value(false));
-    }
-
-    @Test
-    @Disabled
-    public void testWhenNewUserWithUserIdAlreadyExists_throwsException(){
-        try {
-            UserDTO userDTO = new UserDTO();
-            userDTO.setFirstName("shiva");
-            userDTO.setLastName("GM");
-            userDTO.setEmailId("shiva1.betel@gmail.com");
-            userDTO.setPassword("password");
-            userDTO.setConfirmPassword("password");
-//        userService.register(userDTO);
-
-            when(userService.register(userDTO)).thenReturn(userDTOIEntityDTOMapper.fromDTOToEntity(userDTO));
-            mockMvc.perform(post("/api/user", userDTO))
-                    .andDo(print())
-                    .andExpect(status().isOk());
-        }catch (Exception e){
-            e.printStackTrace();
-            fail();
-
-        }
-
-    }
+//    @BeforeEach
+//    void setUp() {
+//         this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
+//    }
+//
+//    @Test
+//    @Disabled
+//    public void testUserIdAvailablity() throws Exception{
+//        mockMvc.perform(get("/api/user/checkAvailability?emailId=shiva.betel@gmail.com"))
+//                .andExpect(status().isOk())
+//                .andExpect(MockMvcResultMatchers.jsonPath("$.available").value(false));
+//    }
+//
+//    @Test
+//    @Disabled
+//    public void testWhenNewUserWithUserIdAlreadyExists_throwsException(){
+//        try {
+//            UserDTO userDTO = new UserDTO();
+//            userDTO.setFirstName("shiva");
+//            userDTO.setLastName("GM");
+//            userDTO.setEmailId("shiva1.betel@gmail.com");
+//            userDTO.setPassword("password");
+//            userDTO.setConfirmPassword("password");
+////        userService.register(userDTO);
+//
+//            when(userService.register(userDTO)).thenReturn(userDTOIEntityDTOMapper.fromDTOToEntity(userDTO));
+//            mockMvc.perform(post("/api/user", userDTO))
+//                    .andDo(print())
+//                    .andExpect(status().isOk());
+//        }catch (Exception e){
+//            e.printStackTrace();
+//            fail();
+//
+//        }
+//
+//    }
 }
