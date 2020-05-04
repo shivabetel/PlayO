@@ -18,6 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 @TestPropertySource("classpath:persistence-test.properties")
 @Transactional
+@Disabled
 public abstract class AbstractServiceIntegrationUnitTest<T extends IEntity, E extends Serializable> {
 
     @Test

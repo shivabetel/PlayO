@@ -4,6 +4,7 @@ import com.ss.playo.common.interfaces.IDto;
 import com.ss.playo.common.interfaces.IEntity;
 import com.ss.playo.common.interfaces.dao.IJPADAO;
 import com.ss.playo.common.service.IService;
+import org.junit.jupiter.api.Disabled;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
@@ -12,6 +13,7 @@ import java.io.Serializable;
 
 import static org.mockito.Mockito.when;
 
+@Disabled
 @SpringBootTest
 @TestPropertySource("classpath:persistence-test.properties")
 public abstract class AbstractServiceUnitTest<T extends IEntity, E extends Serializable> {
