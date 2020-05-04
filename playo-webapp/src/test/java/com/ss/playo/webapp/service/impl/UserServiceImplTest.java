@@ -12,7 +12,6 @@ import com.ss.playo.webapp.service.IUserService;
 import com.ss.playo.webapp.web.dtos.UserDTO;
 import com.ss.playo.webapp.web.mappers.UserEntityDTOMapper;
 import com.ss.test.common.service.AbstractServiceUnitTest;
-import javafx.beans.binding.When;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
